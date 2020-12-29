@@ -33,3 +33,13 @@ body {
     font-weight: 300; //A bit of font weight contributes to the luxury feel
     line-height: 1.6;
 }
+
+.container {
+    display: grid;
+    //80vh means the first row will always be 80% of viewport height
+    //min-content means second the row will size itself to fit its contents
+    //40vw means the third row will always be 40% of viewport width
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content); 
+    //We use the minmax() function below to say the max width of a column is 14rem and the min is its content
+    grid-template-columns: 8rem 1fr repeat(8, minmax(min-content, 14rem)) 1fr; //14rem comes from 1140px / 8 = 142.5px ~ 140px
+}
