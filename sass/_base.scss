@@ -14,3 +14,22 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+body {
+    font-family: $font-primary;
+    color: $color-grey-dark-2; //Grey with a hint of gold compliments the gold primary color
+    font-weight: 300; //A bit of font weight contributes to the luxury feel
+    line-height: 1.6;
+}
