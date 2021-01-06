@@ -1,0 +1,26 @@
+%heading { //This is an extend, not a mixin. It works in the reverse, instead of it getting copied into the class below, the class below get copied into it.
+    font-family: $font-display;
+    font-weight: 400;
+}
+
+.heading-1 {
+    @extend %heading;
+}
+
+.heading-2 {
+    @extend %heading;
+    
+}
+
+.heading-3 {
+    @extend %heading;
+    
+}
+
+.heading-4 {
+    @extend %heading;
+    font-size: 1.9rem;
+
+    &--light { color: $color-grey-light-1; }
+    &--dark { color: $color-grey-dark-1; }
+}

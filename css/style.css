@@ -18,31 +18,83 @@ body {
 .container {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-  grid-template-columns: 8rem 1fr repeat(8, minmax(min-content, 14rem)) 1fr; }
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+
+/* 
+grid-template-columns: 
+[sidebar-start] this is the firstline of the grid i.e. the far left of the page
+8rem we want the sidebar to be 8rem
+[sidebar-end full-start] we label the end of the sidebar / the start of the main area
+minmax(6rem, 1fr) we put this on either side of the main content to center it, we use minmax to ensure some margin
+[center-start] this labels the start of the center content (centered with within the full)
+repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) this is the center content, we want 8 columns at 14 rem each which adds up to ~1140px, the columns are labeled automatically as shown, but I don't use the labels here because I like the other method I used
+[center-end] end of center section
+minmax(6rem, 1fr) same buffer as before center-start
+[full-end]; 
+*/
+.heading-1, .heading-2, .heading-3, .heading-4 {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400; }
+
+.heading-4 {
+  font-size: 1.9rem; }
+  .heading-4--light {
+    color: #f9f7f6; }
+  .heading-4--dark {
+    color: #54483A; }
 
 .sidebar {
-  background-color: #c69963; }
+  background-color: #c69963;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1; }
 
 .header {
-  background-color: #54483A; }
+  background-color: #54483A;
+  grid-column: full-start / span 7; }
 
 .realtors {
-  background-color: #101d2c; }
+  background-color: #101d2c;
+  grid-column: span 3 / -1; }
 
 .features {
-  background-color: #aaa; }
+  grid-column: center-start / center-end;
+  margin: 15rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 6rem;
+  align-items: start; }
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem; }
+  .feature__icon {
+    height: 4.5rem;
+    width: 4.5rem;
+    fill: #c69963;
+    grid-row: 1 / span 2;
+    transform: translateY(-1rem); }
+  .feature__text {
+    font-size: 1.7rem;
+    grid-column: 2 / -1; }
 
 .story__pictures {
-  background-color: #c69963; }
+  background-color: #c69963;
+  grid-column: center-start / span 4; }
 
 .story__content {
-  background-color: #f9f7f6; }
+  background-color: #f9f7f6;
+  grid-column: span 4 / center-end; }
 
 .homes {
-  background-color: #101d2c; }
+  background-color: #101d2c;
+  grid-column: center-start / center-end; }
 
 .gallery {
-  background-color: #54483A; }
+  background-color: #54483A;
+  grid-column: full-start / full-end; }
 
 .footer {
-  background-color: #101d2c; }
+  background-color: #101d2c;
+  grid-column: full-start / full-end; }

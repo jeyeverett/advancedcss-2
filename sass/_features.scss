@@ -1,3 +1,30 @@
 .features {
-    background-color: $color-grey-light-2;
+    grid-column: center-start / center-end;
+    margin: 15rem 0;
+
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); //We change our columns to allow it to adjust based on width size i.e. it will go from a 3 x 2 grid to a 2 x 3
+    grid-gap: 6rem;
+    align-items: start;
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+
+    &__icon {
+        height: 4.5rem;
+        width: 4.5rem;
+        fill: $color-primary;
+        grid-row: 1 / span 2; //Note that the -1 only works with an EXPLICIT grid
+        transform: translateY(-1rem);
+    }
+
+    &__text {
+        font-size: 1.7rem;
+        grid-column: 2 / -1;
+    }
 }

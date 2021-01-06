@@ -38,8 +38,24 @@ body {
     display: grid;
     //80vh means the first row will always be 80% of viewport height
     //min-content means second the row will size itself to fit its contents
-    //40vw means the third row will always be 40% of viewport width
+    //40vw means the third row will always be 40% of viewport width, this helps it respond to screen width
     grid-template-rows: 80vh min-content 40vw repeat(3, min-content); 
     //We use the minmax() function below to say the max width of a column is 14rem and the min is its content
-    grid-template-columns: 8rem 1fr repeat(8, minmax(min-content, 14rem)) 1fr; //14rem comes from 1140px / 8 = 142.5px ~ 140px
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; //14rem comes from 1140px / 8 = 142.5px ~ 140px, also note the 1fr on either size is to center the main content
+
 }
+
+
+
+/* 
+grid-template-columns: 
+[sidebar-start] this is the firstline of the grid i.e. the far left of the page
+8rem we want the sidebar to be 8rem
+[sidebar-end full-start] we label the end of the sidebar / the start of the main area
+minmax(6rem, 1fr) we put this on either side of the main content to center it, we use minmax to ensure some margin
+[center-start] this labels the start of the center content (centered with within the full)
+repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) this is the center content, we want 8 columns at 14 rem each which adds up to ~1140px, the columns are labeled automatically as shown, but I don't use the labels here because I like the other method I used
+[center-end] end of center section
+minmax(6rem, 1fr) same buffer as before center-start
+[full-end]; 
+*/
