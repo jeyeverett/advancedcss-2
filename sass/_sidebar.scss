@@ -2,4 +2,77 @@
     background-color: $color-primary;
     grid-column: sidebar-start / sidebar-end;
     grid-row: 1 / -1;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    transition: all .2s;
+    z-index: 100;
+
+    &__nav-hidden {
+        display: block;
+        position: fixed;
+        top: 8rem;
+        left: 1.7rem;
+        list-style: none;
+        flex-basis: 100%;
+        align-self: flex-start;
+        transform: translateX(-30rem);
+        transition: all .2s;
+    }
+
+    &__nav-visible {
+        transform: translateX(0);
+        opacity: 1;
+        transition: all .2s;
+    }
+
+    &__expand {
+        width: 30rem;
+        z-index: 100;
+        transition: all .2s;
+    }
+}
+
+.nav-btn {
+    border: none;
+    border-radius: 0;
+    margin-top: 3.5rem;
+    background-color: #fff;
+    height: 2px;
+    width: 4.5rem;
+    cursor: pointer;    
+    transition: all .2s;
+    outline: none;
+
+    &::before,
+    &::after {
+        background-color: #fff;
+        height: 2px;
+        width: 4.5rem;
+        content: "";
+        display: block;
+        transition: all .2s;
+    }
+
+    &::before { transform: translateY(-1.5rem); }
+    &::after { transform: translateY(1.3rem); }
+}
+
+.nav-btn-active {
+    background-color: transparent;
+    transition: all .2s;
+
+    &::before { transform: rotate(135deg) translateY(-1px); }
+    &::after { transform: rotate(-135deg) translateY(1px); }
+}
+
+.btn-container{
+    position: fixed;
+    top: 0;
+    left: 1.7rem;
+    height: 6rem;
+    display: block;
+    cursor: pointer;
 }
