@@ -17,6 +17,8 @@ $font-display: 'Josefin Sans', sans-serif;
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em; // 1200px
 $bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px
+$bp-small: 37.5em; // 800px
 
 
 *, 
@@ -34,6 +36,10 @@ html {
     @media only screen and (max-width: $bp-largest) {
         font-size: 50%;
     }
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 50%;
+    }
 }
 
 body {
@@ -48,13 +54,17 @@ body {
     //80vh means the first row will always be 80% of viewport height
     //min-content means second the row will size itself to fit its contents
     //40vw means the third row will always be 40% of viewport width, this helps it respond to screen width
-    grid-template-rows: 80vh min-content 40vw repeat(3, min-content); 
+    grid-template-rows: 85vh min-content 40vw repeat(3, min-content); 
     //We use the minmax() function below to say the max width of a column is 14rem and the min is its content
     grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; //14rem comes from 1140px / 8 = 142.5px ~ 140px, also note the 1fr on either size is to center the main content
 
     @media only screen and (max-width: $bp-large) {
         grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content); 
         grid-template-columns:[full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-rows: 6rem calc(100vh - 6rem); 
     }
 }
 

@@ -17,12 +17,12 @@
         <div class="sidebar">
             <div class="btn-container"><button class="nav-btn"></button></div>
             <ul class="sidebar__nav-hidden">
-                <li class="nav__item"><a href="#" class="sidebar__link">Find your dream home</a></li>
-                <li class="nav__item"><a href="#" class="sidebar__link">Request proposal</a></li>
                 <li class="nav__item"><a href="#" class="sidebar__link">Download home planner</a></li>
-                <li class="nav__item"><a href="#" class="sidebar__link">Contact us</a></li>
+                <li class="nav__item"><a href="#" class="sidebar__link">Find your dream home</a></li>
                 <li class="nav__item"><a href="#" class="sidebar__link">Submit your property</a></li>
                 <li class="nav__item"><a href="#" class="sidebar__link">Come work with us</a></li>
+                <li class="nav__item"><a href="#" class="sidebar__link">Request proposal</a></li>
+                <li class="nav__item"><a href="#" class="sidebar__link">Contact us</a></li>
             </ul>
         </div>
 
@@ -380,15 +380,15 @@
 
         <footer class="footer">
             <ul class="nav">
-                <li class="nav__item"><a href="#" class="nav__link">Find your dream home</a></li>
-                <li class="nav__item"><a href="#" class="nav__link">Request proposal</a></li>
                 <li class="nav__item"><a href="#" class="nav__link">Download home planner</a></li>
-                <li class="nav__item"><a href="#" class="nav__link">Contact us</a></li>
+                <li class="nav__item"><a href="#" class="nav__link">Find your dream home</a></li>
                 <li class="nav__item"><a href="#" class="nav__link">Submit your property</a></li>
                 <li class="nav__item"><a href="#" class="nav__link">Come work with us</a></li>
+                <li class="nav__item"><a href="#" class="nav__link">Request proposal</a></li>
+                <li class="nav__item"><a href="#" class="nav__link">Contact us</a></li>
             </ul>
             <p class="copyright">
-                &copy; Copyright 2017 by Jonas Schmedtmann. Designed by Jonas Schmedtmann, built by Jeysen Freedman in coordination with Jonas Schmedtmann's course Advanced CSS and Sass.
+                &copy; Copyright 2017 by Jonas Schmedtmann. Designed by Jonas Schmedtmann. Built by Jeysen Freedman in coordination with Jonas Schmedtmann's course Advanced CSS and Sass.
             </p>
         </footer>
     </body>
@@ -408,9 +408,6 @@
         sidebar.classList.toggle('sidebar__expand');
         nav.classList.toggle('sidebar__nav-visible');
         button.classList.toggle('nav-btn-active');
-        sidebarList.forEach(item => {
-            item.classList.toggle('sidebar__link-visible');
-        });
     }
     
 </script>
