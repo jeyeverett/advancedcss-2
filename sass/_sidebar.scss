@@ -10,6 +10,35 @@
     transition: all .2s;
     z-index: 100;
 
+    @media only screen and (max-width: $bp-large) {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+    }
+
+    &__link,
+    &__link:visited {
+        font-size: 1.4rem;
+        color: #fff;
+        text-decoration: none;
+        font-family: $font-display;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 1.5rem;
+        display: block;
+        transition: all .2s;
+
+        &:hover,
+        &:active {
+            background-color: rgba(#fff, .05);
+            transform: translateY(-3px);
+        }
+
+        @media only screen and (max-width: $bp-large) {
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+    }
+
     &__nav-hidden {
         display: block;
         position: fixed;
@@ -20,18 +49,49 @@
         align-self: flex-start;
         transform: translateX(-30rem);
         transition: all .2s;
+        opacity: 0;
+
+        @media only screen and (max-width: $bp-large) {
+            display: flex;
+            width: 90%;
+            top: .9rem;
+            transform: translateY(-20rem);
+            opacity: 0;
+            transition: all .2s;
+        }
     }
 
     &__nav-visible {
         transform: translateX(0);
         opacity: 1;
         transition: all .2s;
+
+        @media only screen and (max-width: $bp-large) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-left: 6.5rem;
+            opacity: 1;
+        }
     }
 
     &__expand {
+        height: 100%;
         width: 30rem;
         z-index: 100;
         transition: all .2s;
+    }
+
+    &-fixed {
+        display: none;
+        @media only screen and (max-width: $bp-large) {
+            display: block;
+            position: fixed;
+            background-color: $color-primary;
+            width: 100%;
+            height: 6rem;
+            z-index: 100;
+        }
     }
 }
 
@@ -58,6 +118,12 @@
 
     &::before { transform: translateY(-1.5rem); }
     &::after { transform: translateY(1.3rem); }
+
+    @media only screen and (max-width: $bp-large) {
+        margin-top: 3rem;
+        &::before { transform: translateY(-1.3rem); }
+        &::after { transform: translateY(1.1rem); }
+    }
 }
 
 .nav-btn-active {
